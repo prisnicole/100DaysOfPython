@@ -16,8 +16,4 @@ class QuizModel:
             return False
 
 
-def generate_question():
-    from quiz_questions import question_bank
-    question, answer = random.choice(list(question_bank.items()))
 
-    return QuizModel(question, answer)
