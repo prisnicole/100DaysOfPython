@@ -1,11 +1,15 @@
 import time
 from turtle import Turtle, Screen
+import prettytable
+
+table = prettytable.PrettyTable()
 
 DELAY = 0.1
 '''
 Notes: 
 Screen is a singleton - i.e. you'll get back
 the same object even if you create it multiple times 
+ref: https://www.edureka.co/blog/python-turtle-module/#StartBuildingTheGame
 '''
 # Screen set up
 snake_screen = Screen()
@@ -34,11 +38,13 @@ def move():
         snake.sety(y - 20)
     if snake.direction == "left":
         x = snake.xcor()
-        snake.sety(x - 20)
+        snake.setx(x - 20)
     if snake.direction == "right":
         x = snake.xcor()
         snake.setx(x + 20)
 
+
+table = PrettyTable()
 
 # snake moves from head - cannot go l from r, vv; u from d vv;
 def go_up():
@@ -72,3 +78,4 @@ while True:
     snake_screen.update()
     move()
     time.sleep(DELAY)
+
